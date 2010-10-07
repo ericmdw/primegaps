@@ -6,26 +6,42 @@
 	<body>
 		<div id="display">
 			<script type="application/processing">
-				int xPos = 0;
-				int yPos = 0;
+				int x = 1;
+				int lastPrime = 0;
+				
 				void setup() {
-					size(900,450);
-					background(10)
-					frameRate(10);
+					size(2000,450);0
+					background(10);
+					stroke(250);
+					frameRate(60);
 				}
 			
 				void draw() {
-					triangle(xPos, yPos, 899, 0, 0, 449);
-					xPos += 1;
-					yPos += 1;
-					if(xPos > 900) {
+					line(x - 1, 449, x - 1, 449 - ((x - lastPrime) * 10));
+					x++;
+					
+					if(isPrime(x)) {
+						lastPrime = x;
+					}
+					
+					if(x > 2000) {
 						exit();
 					}
 				}
+				
+				boolean isPrime(int number) {
+					for(int i = 2; i < number; i++) {
+						if(number % i == 0) {
+							return false;
+						}
+					}
+					
+					return true;
+				}
 			</script>
-			<canvas width="900" height="450"></canvas>
+			<canvas width="2000" height="450"></canvas>
 		</div>
-		<p>Slightly more intelligent text here.</p>
+		<p>Displaying distances between primes... y = x - [nearest prime number preceding x]</p>
 		
 		<script type="text/javascript" charset="utf-8" src="processing.init.js"></script>
 	</body>
