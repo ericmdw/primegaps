@@ -10,14 +10,17 @@
 				int lastPrime = 0;
 				
 				void setup() {
-					size(2000,450);0
+					size(10000,450);0
 					background(10);
 					stroke(250);
 					frameRate(60);
 				}
 			
 				void draw() {
-					line(x - 1, 449, x - 1, 449 - ((x - lastPrime) * 10));
+					int width = 5;
+					int height = (x - lastPrime) * 10;
+					rect((x * width) - 1, 449 - height, width, height);
+					
 					x++;
 					
 					if(isPrime(x)) {
@@ -39,7 +42,7 @@
 					return true;
 				}
 			</script>
-			<canvas width="2000" height="450"></canvas>
+			<canvas width="10000" height="450"></canvas>
 		</div>
 		<p>Displaying distances between primes... y = x - [nearest prime number preceding x]</p>
 		
