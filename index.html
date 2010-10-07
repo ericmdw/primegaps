@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" charset="utf-8" src="processing-0.9.7.js"></script>
+	</head>
+	<body>
+		<div id="display">
+			<script type="application/processing">
+				int xPos = 0;
+				int yPos = 0;
+				void setup() {
+					size(900,450);
+					background(10)
+					frameRate(10);
+				}
+			
+				void draw() {
+					triangle(xPos, yPos, 899, 0, 0, 449);
+					xPos += 1;
+					yPos += 1;
+					if(xPos > 900) {
+						exit();
+					}
+				}
+			</script>
+			<canvas width="900" height="450"></canvas>
+		</div>
+		<p>Work, damn you.</p>
+		
+		<script type="text/javascript" charset="utf-8" src="processing.init.js"></script>
+	</body>
+</html>
