@@ -27,13 +27,20 @@
 						lastPrime = x;
 					}
 					
+					stroke(0);
+					fill(0);
+					rect(0,0, 200, 75);
+					fill(250);
+					text(frameRate, 0,0, 200, 75);
+					
 					if(x > 2000) {
 						exit();
 					}
 				}
 				
 				boolean isPrime(int number) {
-					for(int i = 2; i < number; i++) {
+					int upperBound = ceil(sqrt(number));
+					for(int i = 2; i < upperBound; i++) {
 						if(number % i == 0) {
 							return false;
 						}
