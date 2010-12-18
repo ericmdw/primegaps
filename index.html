@@ -13,10 +13,11 @@
 					size(10000,450);0
 					background(10);
 					stroke(250);
-					frameRate(60);
+					frameRate(1000);
 				}
 			
 				void draw() {
+					stroke(250);
 					int width = 5;
 					int height = (x - lastPrime) * 10;
 					rect((x * width) - 1, 449 - height, width, height);
